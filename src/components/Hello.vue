@@ -3,11 +3,16 @@
     <!-- <mt-button>Click Me!</mt-button> -->
     <mt-button @click.native="handleClick">按钮</mt-button>
     <mt-button @click.native="load">加载</mt-button>
+    <quill-editor ref="myTextEditor"
+                  v-model="content"
+                  :config="editorOption">
+    </quill-editor>
   </div>
 </template>
 
 <script>
 import {Toast, Indicator} from 'mint-ui'
+import {quillEditor} from 'vue-quill-editor'
 export default {
   name: 'hello',
   data () {
@@ -31,6 +36,9 @@ export default {
         Indicator.close()
       }, 1000)
     }
+  },
+  components: {
+    'quill-editor': quillEditor
   }
 }
 </script>
